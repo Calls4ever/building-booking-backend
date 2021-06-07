@@ -10,23 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_06_160610) do
+ActiveRecord::Schema.define(version: 2021_06_07_005352) do
 
   create_table "bookings", force: :cascade do |t|
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.date "start_time"
+    t.date "end_time"
+    t.integer "building_id"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.boolean "confirmed", default: false
   end
 
   create_table "buildings", force: :cascade do |t|
     t.string "name"
     t.string "string"
     t.string "location"
+    t.integer "owner_id"
     t.integer "max_piriority_point", default: 15
     t.integer "min_piriority_point", default: 10
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "img_url"
   end
 
   create_table "owners", force: :cascade do |t|

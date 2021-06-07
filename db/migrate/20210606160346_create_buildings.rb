@@ -4,6 +4,7 @@ class CreateBuildings < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :string
       t.string :location
+      t.integer :owner_id
       t.integer :max_piriority_point, default: 15
       t.integer :min_piriority_point, default: 10
 
